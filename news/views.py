@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
+from .models import Article
 
 import datetime as dt
 
@@ -13,9 +14,8 @@ def welcome(request):
 # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
 def news_of_day(request):
     date = dt.date.today()
-    return render(request, 'all-news/today-news.html', {"date": date,})
-
-    
+    news = Article.todays_news()
+    return render(request, 'all-news/today-news.html', {"date": date, "news": news})
 
 
 # View Function to present news from past days
