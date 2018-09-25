@@ -42,5 +42,15 @@ class ArticleTestClass(TestCase):
 
 
 
+class tags(TestCase):
+    def setUp(self):
+        self.new_tag = tags()
+
+    def test_new_tag_isinstance_of_tags(self):
+        self.assertTrue(isinstance(self.new_tag,tags))
+
+
+
+
 
 
